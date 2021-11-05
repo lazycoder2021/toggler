@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+
+        *{
+            margin:0px; 
+            padding:0px; 
+            box-sizing:border-box; 
+        }
+
+        .bar{
+            height:2px;
+            margin-top:3px;
+            margin-bottom:5px;
+            width:100%; 
+            border-bottom:3px solid black;
+        }
+
+        .toggle-button{
+            position:fixed; 
+            top:3px; 
+            right:3px;
+            border:1px solid black; 
+            width:30px; 
+            height:30px;
+            display:none; 
+        }
+
+        .toggler-div{
+            position:relative; 
+            border:1px solid black; 
+            width:400px; 
+            height: 100vh; 
+            transform:translateX(-100%);
+            transition: transform 0.3s; 
+        }
+
+        .toggler-div-show {
+            transform: translateX(0%);
+        }
+
+        .close-btn{
+            position:absolute; 
+            right:3px; 
+            top:3px;
+            cursor:pointer; 
+        }
+
+        .menu{
+            border:0px solid red;
+            padding:20px 15px;
+        }
+
+        .menu-items {
+            border: 0px solid blue;
+            margin: 10px 0px;
+            padding:15px;
+        }
+
+            .menu-items p {
+                margin: 20px 0px;
+                font-size: 20px;
+                padding: 15px 10px;
+                transition: 0.3s;
+            }
+
+        p:hover{
+            background-color:skyblue; 
+           
+        }
+
+        @media screen and (max-width:500px) {
+            .sidebar {
+                width: 400px;
+            }
+
+            .toggle-button{
+                display:block;
+            }
+
+
+        }
+    </style>
+</head>
+<body>
+
+    <div class="toggle-button">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+    <div class="toggler-div">
+        <div class="close-btn"><h2>X</h2></div>
+        <div class="menu">
+            <div class="menu-items">
+                <p>Home</p>
+                <p>Services</p>
+                <p>About</p>
+                <p>Contact</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var toggleButton = document.querySelector('.toggle-button');
+        var togglerDiv = document.querySelector('.toggler-div'); 
+        toggleButton.addEventListener('click', function () {
+            togglerDiv.classList.toggle('toggler-div-show'); 
+            console.log('works')
+        })
+        var closeButton = document.querySelector('.close-btn');
+        closeButton.addEventListener('click', function () {
+            togglerDiv.classList.remove('toggler-div-show');
+        })
+    </script>
+</body>
+</html>
